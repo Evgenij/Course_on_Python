@@ -14,10 +14,12 @@ def find_dates(file):
     text = [string.strip() for string in open(file, 'r', encoding="utf-8").readlines()]
     pattern = re.compile('\d\d-\d\d-\d\d\d\d')
     dates = {}
+
     for index, string in enumerate(text):
         matches = pattern.finditer(string)
         for match in matches:
             dates["Строка "+str(index+1)+", позиция "+str(match.start())]=" : найдено '"+match.group()+"'"
+
     for key in dates.keys():
         print(key+dates[key])
 
