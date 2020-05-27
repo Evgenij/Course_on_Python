@@ -20,7 +20,6 @@ class VLine(QtWidgets.QFrame):
         super(VLine, self).__init__()
         self.setFrameShape(self.VLine|self.Sunken)
 
-
 class Message(QtWidgets.QMainWindow):
     def Show(self):
         textMmessage = 'Вы действительно хотите открыть лог? Данные последних поисков будут потеряны!'
@@ -29,7 +28,6 @@ class Message(QtWidgets.QMainWindow):
 
         if reply == QtWidgets.QMessageBox.Yes:
             return 'yes'
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -70,12 +68,12 @@ class Ui_MainWindow(object):
         self.addToLog = QtWidgets.QAction(MainWindow)
         self.addToLog.setObjectName("AddToLog")
         self.readLog = QtWidgets.QAction(MainWindow)
-        self.readLog.setObjectName("ReadLog")
+        self.readLog.setObjectName("ReadLog")     
         self.menuFile.addAction(self.openFile)
         self.menuFile.addSeparator()
         self.menuFile.addAction(self.closeApp)
         self.menu.addAction(self.addToLog)
-        self.menu.addAction(self.readLog)
+        self.menu.addAction(self.readLog)  
         self.menu.addAction(self.exportLog)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menu.menuAction())
@@ -107,7 +105,7 @@ class Ui_MainWindow(object):
         fileName = QFileDialog.getOpenFileName()
 
         if fileName[0] != '':
-            file = open(fileName[0],'r')
+            file = open(fileNam[0],'r')
             self.listView.addItem('Файл '+ file.name +' был обработан '+ now.strftime("%d.%m.%Y %H:%M") +':')
             self.listView.addItem("")
 
